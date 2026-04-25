@@ -50,8 +50,4 @@ pytest
 
 ---
 
-## ⚠️ Production Concerns
 
-1. The in-memory repository will crash on large datasets — needs a database-backed storage layer.
-2. There is no idempotency logic, so re-running the same files will create duplicate match records.
-3. Amount parsing will silently fail on float inputs or localized number formats, causing real matches to be missed.
