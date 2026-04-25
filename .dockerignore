@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Git
+.git/
+.gitignore
+
+# Tests
+.pytest_cache/
+tests/
+
+# Documentation
+.plans/
+*.md
+
+# Local data (except sample data)
+test_data/
+!test_data_generator/output/

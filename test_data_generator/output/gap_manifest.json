@@ -1,0 +1,61 @@
+{
+  "period": "2024-03",
+  "generated_at": "2024-03-test-data",
+  "gaps": [
+    {
+      "gap_id": "G1",
+      "type": "cross_month_settlement",
+      "expected_status": "platform_only",
+      "platform_txn_id": "TXN-9001",
+      "bank_ref_id": null,
+      "note": "Bank line appears in April \u2014 outside recon window"
+    },
+    {
+      "gap_id": "G2",
+      "type": "rounding_accumulation",
+      "expected_status": "matched_with_delta",
+      "platform_txn_ids": [
+        "TXN-8001",
+        "TXN-8002",
+        "TXN-8003",
+        "TXN-8004",
+        "TXN-8005",
+        "TXN-8006",
+        "TXN-8007",
+        "TXN-8008",
+        "TXN-8009",
+        "TXN-8010",
+        "TXN-8011",
+        "TXN-8012"
+      ],
+      "per_txn_delta_cents": 1,
+      "aggregate_delta_cents": 12,
+      "note": "Each txn matches individually; delta only visible in rollup"
+    },
+    {
+      "gap_id": "G3",
+      "type": "duplicate_bank_entry",
+      "expected_status": "bank_only",
+      "platform_txn_id": "TXN-7001",
+      "original_bank_ref": "BANK-7001",
+      "duplicate_bank_ref": "BANK-7002",
+      "note": "Same amount + counterparty_ref within 1 day"
+    },
+    {
+      "gap_id": "G4",
+      "type": "orphan_refund",
+      "expected_status": "bank_only",
+      "bank_ref_id": "BANK-6001",
+      "amount_cents": -4500,
+      "match_confidence": 0,
+      "note": "No counterparty_ref; negative amount; no platform record"
+    }
+  ],
+  "stats": {
+    "total_platform_transactions": 199,
+    "total_bank_entries": 200,
+    "clean_matched_pairs": 185,
+    "gap_transactions": 14,
+    "gap_bank_entries": 15
+  }
+}
